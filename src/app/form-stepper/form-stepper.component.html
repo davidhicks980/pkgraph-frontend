@@ -1,0 +1,40 @@
+<mat-vertical-stepper [linear]="false" #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Fill out your quiz information</ng-template>
+    <app-quiz-info-form></app-quiz-info-form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Add questions</ng-template>
+    <app-question-form></app-question-form>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Add graphical elements</ng-template>
+    <app-plot-form> </app-plot-form>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Preview your quiz</ng-template>
+
+    <p>
+      Excellent work! You can now download your quiz files from below.
+      <br />
+      To use a quiz, host the containing directory on a server and link to your
+      index.html file for each quiz. You can also host the files on
+      <a href="https://pages.github.com/">github pages</a> for a quick and easy
+      way to get started.
+    </p>
+    <div>
+      <button mat-button (click)="stepper.reset()">Add another quiz</button>
+      <button color="primary" mat-raised-button matStepperPrevious>
+        Preview Quiz
+      </button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

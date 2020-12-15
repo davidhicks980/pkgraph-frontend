@@ -1,0 +1,115 @@
+<form
+  autocomplete="off"
+  [formGroup]="quizInfoForm"
+  novalidate
+  (ngSubmit)="onSubmit()"
+>
+  <div fxFlex fxLayout="column" fxLayoutGap="30px">
+    <div class="form-group">
+      <label class="input-label" for="inputTitle">
+        <b>Enter your title</b></label
+      >
+      <input
+        type="text"
+        placeholder="Pharmacokinetic Quiz 1"
+        formControlName="title"
+        name="inputTitle"
+        (change)="monitor()"
+        required
+      />
+      <span class="counter-label">
+        {{ title.value ? title.value.length : 0 }}/30 characters</span
+      >
+
+      <span
+        class="feedback-label"
+        *ngIf="title.errors && (title.dirty || title.touched)"
+        >Choose a title with up to 30 alphanumeric characters</span
+      >
+    </div>
+
+    <div>
+      <div class="form-group">
+        <span class="switch">
+          <label class="md_switch">
+            Generate my quiz Identifier
+            <input
+              checked
+              type="checkbox"
+              name="toggleRandomId"
+              formControlName="randomIdentifier"
+              (toggleChange)="toggleControl('abstractControl', userId)"
+            />
+            <span class="md_switch__toggle"></span>
+          </label>
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="input-label" for="inputUserId">
+        <b>Enter a quiz identifier</b></label
+      >
+      <input
+        type="text"
+        class="small"
+        placeholder="pkQuiz1"
+        formControlName="userCodeId"
+        name="inputUserId"
+      />
+      <span class="counter-label">
+        {{ userId.value ? userId.value.length : 0 }}/10 characters</span
+      >
+      <span
+        class="feedback-label"
+        *ngIf="userId.errors && (userId.dirty || userId.touched)"
+        >Choose a title between 5 and 10 alphanumeric characters</span
+      >
+    </div>
+
+    <br />
+
+    <div class="row">
+      <textarea
+        class="textarea"
+        name="descriptionInput"
+        required
+        placeholder="Describe your quiz"
+        formControlName="description"
+        maxlength="800"
+      ></textarea>
+      <label for="descriptionInput">Describe your quiz</label>
+    </div>
+    <br />
+    <div class="row">
+      <ul class="checkbox-list">
+        <li>
+          <mat-checkbox
+            formControlName="includeQuestions"
+            value="includeQuestions"
+            >Include Questions</mat-checkbox
+          >
+        </li>
+        <li>
+          <mat-checkbox formControlName="includePlots" value="includePlots"
+            >Include Plots</mat-checkbox
+          >
+        </li>
+      </ul>
+    </div>
+
+    <button
+      [disabled]="quizInfoForm.invalid"
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [matTooltip]="
+        quizInfoForm.valid
+          ? 'Proceed to next section'
+          : 'At least one of your answers is ' +
+            (quizInfoForm.status | lowercase)
+      "
+    >
+      GET STARTED
+    </button>
+  </div>
+</form>

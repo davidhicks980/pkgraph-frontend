@@ -5,13 +5,12 @@ main.scaffold {
   gap: 20px;
   place-content: center;
 }
-main {
-  & section {
-    max-width: 800px;
-  }
-  & section.preview {
-    position: relative;
-  }
+
+main section {
+  max-width: 800px;
+}
+main section.preview {
+  position: relative;
 }
 
 @media only screen and (max-width: 600px) {
@@ -24,6 +23,7 @@ main {
     padding: 5px;
     width: 100%;
   }
+
   main section {
     max-width: 400px;
   }

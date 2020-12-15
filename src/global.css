@@ -1,0 +1,147 @@
+div.form-group {
+  display: grid;
+  grid-template-rows: 1.5em 3.5em 2em 2.75em;
+  max-width: 500px;
+}
+div.form-group input[type=text] {
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  padding-left: 0.5em;
+  font-family: Roboto, sans-serif;
+  font-size: 12pt;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+div.form-group input[type=text]:focus {
+  border: 1px solid #5454af;
+  box-shadow: 0 0 0 3px #dcdcff;
+}
+div.form-group input[type=text] + .counter-label {
+  color: gray;
+  font-size: 8pt;
+}
+div.form-group input[type=text]::placeholder {
+  color: #787878;
+}
+div.form-group input[type=text] ~ .feedback-label {
+  border: 1px solid lightblue;
+  color: white;
+  background: #3838ad;
+  padding: 8px 16px 5px 8px;
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 255, 0.178);
+}
+div.form-group input[type=text] ~ .feedback-label::before {
+  content: url("./assets/info-24px.svg");
+  padding-right: 10px;
+}
+div.form-group input[type=text].ng-invalid:not(:placeholder-shown) ~ .feedback-label {
+  border: 1px solid #ff6969;
+  color: white;
+  background: #f31616;
+  box-shadow: 0 0 10px 1px rgba(255, 0, 0, 0.178);
+}
+div.form-group input[type=text].ng-invalid:not(:placeholder-shown) ~ .feedback-label::before {
+  content: url("./assets/error-black-24dp.svg");
+  padding-right: 10px;
+}
+div.form-group textarea.textarea {
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  padding-left: 0.5em;
+  font-family: Roboto, sans-serif;
+  font-size: 12pt;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline: none;
+  max-width: 90%;
+}
+div.form-group textarea.textarea:focus {
+  border: 1px solid #5454af;
+  box-shadow: 0 0 0 3px #dcdcff;
+}
+div.form-group textarea.textarea::placeholder {
+  color: #323232;
+}
+div.form-group .switch .md_switch {
+  display: inline-flex;
+  width: 100%;
+  max-width: 500px;
+  float: right;
+  margin-left: 50px;
+}
+div.form-group .switch .md_switch .md_switch__toggle {
+  position: relative;
+  cursor: pointer;
+  font-size: 14pt;
+}
+div.form-group .switch .md_switch .md_switch__toggle::before, div.form-group .switch .md_switch .md_switch__toggle::after {
+  content: "";
+  display: block;
+  margin: 0 3px;
+  transition: 0.25s ease;
+  background: #aaaaaa;
+}
+div.form-group .switch .md_switch .md_switch__toggle::before {
+  height: 1.7em;
+  width: 3.35em;
+  border-radius: 1em;
+  background: rgba(182, 182, 182, 0.2);
+}
+div.form-group .switch .md_switch .md_switch__toggle::after {
+  position: absolute;
+  top: 50%;
+  transform: translate(0.2em, -50%);
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 1em;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.137);
+}
+div.form-group .switch .md_switch [type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+div.form-group .switch .md_switch [type=checkbox]:checked:active + .md_switch__toggle::after {
+  width: 2em;
+  transform: translate(1em, -50%);
+}
+div.form-group .switch .md_switch [type=checkbox]:active + .md_switch__toggle::after {
+  width: 2em;
+}
+div.form-group .switch .md_switch [type=checkbox]:checked + .md_switch__toggle::before {
+  background: rgba(56, 56, 173, 0.3);
+}
+div.form-group .switch .md_switch [type=checkbox]:checked + .md_switch__toggle::after {
+  transform: translate(1.75em, -50%);
+  background: #3838ad;
+  direction: rtl;
+}
+div.form-group .switch .md_switch [type=checkbox]:focus + .md_switch__toggle::before {
+  border: 1px solid #3838ad;
+  box-shadow: 0 0 0 0.1em white, 0 0 0 0.3em #c5c5ec;
+}
+div.form-group .switch .md_switch [type=checkbox]:disabled + .md_switch__toggle::after {
+  box-shadow: none;
+}
+div.form-group .switch .md_switch [type=checkbox]:disabled + .md_switch__toggle::after.md_switch__toggle {
+  cursor: not-allowed;
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+button.submit-button {
+  width: 100%;
+  height: 2.5em;
+  font-size: 14;
+}
+
+ul.checkbox-list {
+  list-style-type: none;
+}

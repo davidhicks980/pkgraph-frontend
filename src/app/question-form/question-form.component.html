@@ -1,0 +1,62 @@
+<form [formGroup]="quizInfoForm" novalidate (ngSubmit)="onSubmit()">
+  <div class="row">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Quiz Title" formControlName="title" />
+      <mat-error *ngIf="quizInfoForm.controls['title'].hasError('required')">
+        Quiz title is <strong>required</strong>. This will be displayed at the
+        top of your quiz.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Abbreviation"
+        formControlName="abbreviation"
+        required
+      />
+      <mat-error
+        *ngIf="quizInfoForm.controls['abbreviation'].hasError('required')"
+      >
+        Quiz title is <strong>required</strong>. This will programmatically
+        identify your quiz.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="full-width">
+      <textarea
+        required
+        matInput
+        name="description"
+        placeholder="Quiz Description"
+        formControlName="description"
+      ></textarea>
+      <label for="description">Quiz Description</label>
+      <mat-error
+        *ngIf="quizInfoForm.controls['description'].hasError('required')"
+      >
+        Address is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <ul class="checkbox-list">
+      <li>
+        <mat-checkbox
+          formControlName="includeQuestions"
+          value="includeQuestions"
+          >Include Questions</mat-checkbox
+        >
+      </li>
+      <li>
+        <mat-checkbox formControlName="includePlots" value="includePlots"
+          >Include Plots</mat-checkbox
+        >
+      </li>
+    </ul>
+  </div>
+
+  <button mat-flat-button color="primary" type="submit">GET STARTED</button>
+</form>
